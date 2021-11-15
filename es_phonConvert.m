@@ -1,5 +1,8 @@
 function strNew = es_phonConvert(lookupTableFullFileName,str,typeOld,typeNew)
-% SAM-PA	CELEX	CPA	DISC
+
+if iscell(str)
+   str = cell2mat(str); 
+end
  
 [~, ~, phonTable] = xlsread(lookupTableFullFileName);
 [~,col2read] = intersect(phonTable(1,:),typeOld);
