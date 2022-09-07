@@ -8,7 +8,7 @@ nConditions = size(data,2);
 
 figure(gcf); hold all
 plot(data');
-plot(mean(data,1),'k','LineWidth',4);
+plot(nanmean(data,1),'k','LineWidth',4);
 xlim([0 nConditions+1]);
 set(gca,'xtick',1:nConditions);
 set(gca,'FontSize',14);
