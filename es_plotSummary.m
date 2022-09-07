@@ -65,3 +65,4 @@ elseif strcmp(type,'line')
         set(gca,'xticklabel',conditions{1});
     end
 end
+set(gca,'FontSize',20);
