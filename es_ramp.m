@@ -1,5 +1,8 @@
 function output = es_ramp(input,fs,duration)
-% Apply window
+% Apply ramp to signal at onset and offset
+% input = signal
+% fs = sample rate (Hz)
+% duration = ramp onset and offset duration (ms)
 
 [len_y,len_x] = size(input);
 if len_y>len_x
