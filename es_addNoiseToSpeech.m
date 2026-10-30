@@ -31,7 +31,7 @@ if strcmp(method,'FFT') % make noise (spectrally matched to speech)
     if isempty(mag)
         mag = abs(fft(speech));
     end
-    ph = rand(nSamples,1)*2*pi-pi;
+    ph = randn(nSamples,1)*2*pi-pi;
     ns = real(ifft(mag.*exp(1i*ph)));   
 elseif strcmp(method,'LPC') % make noise (spectrally matched to speech)- LPC method
     if isempty(lpc_val)
@@ -53,6 +53,8 @@ elseif strcmp(method,'LPC') % make noise (spectrally matched to speech)- LPC met
     lpc_val.a1 = a1;
     lpc_val.g1 = g1;
     lpc_val.nlpc = nlpc;
+elseif strcmp(method,'white') % make white noise
+    ns = randn(nSamples,1);
 end
 
 ns = ns*(rms(speech)/rms(ns)); % match rms of noise to rms of speech
